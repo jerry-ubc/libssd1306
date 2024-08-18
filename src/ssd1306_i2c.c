@@ -483,16 +483,16 @@ int ssd1306_i2c_run_cmd(ssd1306_i2c_t *oled, ssd1306_i2c_cmd_t cmd, uint8_t *dat
             fprintf(err_fp, "%c0x%02x%c", (idx == 0) ? '[' : ' ',
                     cmd_buf[idx], (idx == (cmd_sz - 1)) ? ']' : ',');
         }
-        fprintf(err_fp, " to device fd %d: %s\n",
-                oled->fd, oled->err->errbuf);
+        // fprintf(err_fp, " to device fd %d: %s\n",
+                // oled->fd, oled->err->errbuf);
         return -1;
     }
-    fprintf(err_fp, "INFO: Wrote %zd bytes of cmd ", nb);
+    // fprintf(err_fp, "INFO: Wrote %zd bytes of cmd ", nb);
     for (size_t idx = 0; idx < cmd_sz; ++idx) {
-        fprintf(err_fp, "%c0x%02x%c", (idx == 0) ? '[' : ' ',
-                cmd_buf[idx], (idx == (cmd_sz - 1)) ? ']' : ',');
+        // fprintf(err_fp, "%c0x%02x%c", (idx == 0) ? '[' : ' ',
+        //         cmd_buf[idx], (idx == (cmd_sz - 1)) ? ']' : ',');
     }
-    fprintf(err_fp, " to device fd %d\n", oled->fd);
+    // fprintf(err_fp, " to device fd %d\n", oled->fd);
     return 0;
 }
 
@@ -533,7 +533,7 @@ int ssd1306_i2c_display_update(ssd1306_i2c_t *oled, const ssd1306_framebuffer_t 
                 oled->gddram_buffer_len, oled->fd, oled->err->errbuf);
         return -1;
     }
-    fprintf(err_fp, "INFO: Wrote %zd bytes of screen buffer to device fd %d\n", nb, oled->fd);
+    // fprintf(err_fp, "INFO: Wrote %zd bytes of screen buffer to device fd %d\n", nb, oled->fd);
     return 0;
 }
 
